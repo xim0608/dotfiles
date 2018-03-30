@@ -21,9 +21,8 @@ if is_not_installed 'brew'; then
   brew doctor
 fi
 
-bin/setup
+if [ ! -d $HOME/dotfiles ]; then
+  git clone https://github.com/xim0608/dotfiles.git ~/dotfiles
+fi
 
-case "$(uname)" in
-  "Darwin") ./bin/mitamae local $@ lib/recipe.rb ;;
-  *)  sudo -E bin/mitamae local $@ lib/recipe.rb ;;
-esac
+~/dotfiles/install.sh
