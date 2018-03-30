@@ -46,8 +46,8 @@ alias reload='exec $SHELL -l'
 alias u='cd ..'
 alias uu='cd ../..'
 alias uuu='cd ../../..'
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias ll='ls -l'
 alias la='ls -a'
 alias bs='brew services'
@@ -63,6 +63,13 @@ alias pyr='pyenv rehash && echo "pyenv rehashed"'
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
+if [ -e /usr/local/share/zsh/site-functions/prompt_pure_setup ]; then
+    fpath=(/usr/local/share/zsh/site-functions/prompt_pure_setup $fpath)
+fi
+if [ -e /usr/local/share/zsh/site-functions/async ]; then
+    fpath=(/usr/local/share/zsh/site-functions/async $fpath)
+fi
+
 
 
 

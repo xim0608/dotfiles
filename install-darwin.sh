@@ -3,7 +3,7 @@
 set -e
 
 is_not_installed(){
-  if ! stype $1 > /dev/null 2>&1; then
+  if ! type $1 > /dev/null 2>&1; then
     echo "$1 is not installed"
     return 0
   else
@@ -27,4 +27,3 @@ case "$(uname)" in
   "Darwin") ./bin/mitamae local $@ lib/recipe.rb ;;
   *)  sudo -E bin/mitamae local $@ lib/recipe.rb ;;
 esac
-
