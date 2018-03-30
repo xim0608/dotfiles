@@ -1,0 +1,10 @@
+{
+	"packages": [
+		"rbenv",
+		"pyenv",
+		"goenv",
+		"tree",
+		"heroku-toolbelt",
+		"mysql"
+	]
+}
