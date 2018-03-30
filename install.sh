@@ -2,7 +2,7 @@
 
 set -e
 
-./bin/setup
+bin/setup
 
 case "$(uname)" in
   "Darwin") ./bin/mitamae local $@ lib/recipe.rb ;;

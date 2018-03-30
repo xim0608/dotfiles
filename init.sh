@@ -25,4 +25,5 @@ if [ ! -d $HOME/dotfiles ]; then
   git clone https://github.com/xim0608/dotfiles.git ~/dotfiles
 fi
 
+cd ~/dotfiles
 ~/dotfiles/install.sh
