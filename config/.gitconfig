@@ -1,0 +1,9 @@
+[user]
+  name = Ryuki Wada
+  email = xim.ryuki@gmail.com
+[include]
+  path = .gitignore
+[alias]
+  co = checkout
+  st = status
+  df = diff
