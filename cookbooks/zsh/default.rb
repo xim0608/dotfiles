@@ -16,7 +16,7 @@ package 'zsh-autosuggestions'
 package 'zsh-completions'
 
 git "./pure" do
-  repository "git@github.com:sindresorhus/pure.git"
+  repository "https://github.com/sindresorhus/pure.git"
 end
 
 if node[:platform] == 'darwin'
