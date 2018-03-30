@@ -18,7 +18,7 @@ fi
 
 if is_not_installed 'brew'; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew doctor
+	brew doctor
 fi
 
 
