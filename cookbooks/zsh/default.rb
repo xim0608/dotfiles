@@ -17,6 +17,7 @@ package 'zsh-completions'
 
 git "./pure" do
   repository "https://github.com/sindresorhus/pure.git"
+  not_if { File.exists?("../../../pure/pure.zsh") && File.exists?("../../../pure/async.zsh") }
 end
 
 if node[:platform] == 'darwin'
