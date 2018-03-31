@@ -20,8 +20,7 @@ export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export GOPATH=$HOME/.go
 export PATH="$HOME/.goenv/bin:$PATH"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
+export PATH="${HOME}/.ndenv/bin:${PATH}"
 
 ###############
 # xenv init
@@ -47,6 +46,8 @@ goenv(){
   eval "$(command goenv init -)"
   goenv "$@"
 }
+
+eval "$(ndenv init -)"
 
 export APPENGINE_SDK="$HOME/.go_appengine/google-cloud-sdk/platform/google_appengine"
 export PATH="$PATH:$APPENGINE_SDK"
