@@ -8,7 +8,8 @@
 # execute 
 
 if node[:os] == 'darwin'
-  link '~/Library/Preferences/com.googlecode.iterm2.plist' do
+  iterm_setting = File.join(ENV['HOME'], 'Library/Preferences/com.googlecode.iterm2.plist')
+  link iterm_setting do
     to File.expand_path("../../../config/com.googlecode.iterm2.plist", __FILE__)
     user node[:user]
     force true
