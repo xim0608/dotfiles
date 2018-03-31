@@ -23,12 +23,12 @@ if node[:platform] == 'darwin'
   link '/usr/local/share/zsh/site-functions/prompt_pure_setup' do
     to File.expand_path("../../../pure/pure.zsh", __FILE__)
     user node[:user]
-    not_if { File.exists?(__FILE__) }
+    force true
   end
   link '/usr/local/share/zsh/site-functions/async' do
     to File.expand_path("../../../pure/async.zsh", __FILE__)
     user node[:user]
-    not_if { File.exists?(__FILE__) }
+    force true
   end
 end
 
