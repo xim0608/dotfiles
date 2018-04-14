@@ -54,7 +54,7 @@ alias bs='brew services'
 alias rbr='rbenv rehash && echo "rbenv rehashed"'
 alias pyr='pyenv rehash && echo "pyenv rehashed"'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
+alias s='ssh'
 
 ##############
 # plugin
