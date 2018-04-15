@@ -27,6 +27,9 @@ function peco-history-selection() {
     zle reset-prompt
 }
 
+# VSCode
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* }
+
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
@@ -53,6 +56,7 @@ alias la='ls -a'
 alias bs='brew services'
 alias rbr='rbenv rehash && echo "rbenv rehashed"'
 alias pyr='pyenv rehash && echo "pyenv rehashed"'
+alias s='ssh'
 
 
 ##############
