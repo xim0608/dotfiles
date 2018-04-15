@@ -27,6 +27,9 @@ function peco-history-selection() {
     zle reset-prompt
 }
 
+# VSCode
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* }
+
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
