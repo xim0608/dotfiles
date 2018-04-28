@@ -5,6 +5,7 @@
 		"goenv",
 		"tree",
 		"mysql",
-		"mas"
+		"mas",
+    "tig"
 	]
 }
