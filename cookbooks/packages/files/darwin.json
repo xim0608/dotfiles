@@ -1,11 +1,11 @@
 {
-	"packages": [
-		"rbenv",
-		"pyenv",
-		"goenv",
-		"tree",
-		"mysql",
-		"mas",
+  "packages": [
+    "rbenv",
+    "pyenv",
+    "goenv",
+    "tree",
+    "mysql",
+    "mas",
     "tig"
-	]
+  ]
 }
