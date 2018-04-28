@@ -7,7 +7,6 @@ fi
 autoload -U promptinit; promptinit
 prompt pure
 
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 export PATH="/usr/local/bin:$PATH"
 
 ###############
