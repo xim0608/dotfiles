@@ -8,3 +8,5 @@
   st = status
   df = diff
   cm = commit
+[push]
+	default = simple
