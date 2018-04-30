@@ -20,6 +20,7 @@ export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export GOPATH=$HOME/.go
 export PATH="$HOME/.goenv/bin:$PATH"
 export PATH="${HOME}/.ndenv/bin:${PATH}"
+export EDITOR=vim
 
 ###############
 # xenv init
