@@ -6,10 +6,10 @@ git ndenv_root do
   not_if { Dir.exists?(ndenv_root)}
 end
 
-execute 'reloading shell' do
-  user ENV['USER']
-  command 'source ~/.zshenv'
-end
+# execute 'reloading shell' do
+#   user ENV['USER']
+#   command 'source ~/.zshenv'
+# end
 
 node_version = 'v8.11.1'
 execute 'install node' do
@@ -21,17 +21,21 @@ execute 'install node' do
   }
 end
 
-execute 'rehash ndenv' do
+execute 'rehash ndenv && globalize ndenv version' do
   user ENV['USER']
-  command 'ndenv rehash'
-end
-
-execute 'global ndenv installed version' do
-  user ENV['USER']
-  command "ndenv global #{node_version}"
+  command "ndenv rehash && ndenv global #{node_version}"
+  not_if {
+    result = run_command('npm -v', error: false)
+    result.exit_status == 0
+  }
 end
 
 execute 'install gatsbyjs' do
   user ENV['USER']
   command 'npm install --global gatsby-cli'
+  not_if {
+    package_name = 'gatsby'
+    result = run_command("type #{package_name}", error: false)
+    !result.stdout.include?('not found')
+  }
 end
