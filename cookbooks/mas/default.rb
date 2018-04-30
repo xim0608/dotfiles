@@ -6,7 +6,7 @@ node['mas_ids'].each do |mas_id|
     user ENV['USER']
     command "mas install #{mas_id}"
     not_if {
-      result = run_command("mas list | grep #{mas_id}")
+      result = run_command("mas list | grep #{mas_id}", error: false)
       result.exit_status == 0
     }
   end
