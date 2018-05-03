@@ -1,9 +1,14 @@
-package 'ndenv'
-
-ndenv_root = "/Users/#{ENV['USER']}/.ndenv/plugins/node-build"
+# package 'ndenv'
+ndenv_root = "/Users/#{ENV['USER']}/.ndenv"
 git ndenv_root do
+  repository "https://github.com/riywo/ndenv.git"
+  not_if {Dir.exists?(ndenv_root)}
+end
+
+node_build_root = "/Users/#{ENV['USER']}/.ndenv/plugins/node-build"
+git node_build_root do
   repository 'https://github.com/riywo/node-build.git'
-  not_if { Dir.exists?(ndenv_root)}
+  not_if { Dir.exists?(node_build_root)}
 end
 
 # execute 'reloading shell' do
@@ -36,6 +41,6 @@ execute 'install gatsbyjs' do
   not_if {
     package_name = 'gatsby'
     result = run_command("type #{package_name}", error: false)
-    !result.stdout.include?('not found')
+    result.exit_status == 0
   }
 end
