@@ -1,3 +1,7 @@
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   zcompile ~/.zshrc
+fi
+
 export LANG=ja_JP.UTF-8
 export LC_ALL='ja_JP.UTF-8'
 export LC_CTYPE=ja_JP.UTF-8
@@ -64,8 +68,8 @@ alias t='tig'
 ##############
 # plugin
 ##############
-eval "$(rbenv init -)"
-eval "$(ndenv init -)"
+eval "$(rbenv init - --no-rehash)"
+eval "$(ndenv init - --no-rehash)"
 
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
