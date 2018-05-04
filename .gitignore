@@ -2,3 +2,7 @@
 bin/mitamae
 bin/mitamae-*
 /pure/
+## google-cloud-sdk
+*/completion.zsh.inc
+*/path.zsh.inc
+*/google-cloud-sdk/*

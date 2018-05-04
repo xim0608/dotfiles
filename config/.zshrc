@@ -85,10 +85,10 @@ fi
 
 
 
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ryuki/.go_appengine/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ryuki/.go_appengine/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/ryuki/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ryuki/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ryuki/.go_appengine/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ryuki/.go_appengine/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+if [ -f '/Users/ryuki/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ryuki/google-cloud-sdk/completion.zsh.inc'; fi
