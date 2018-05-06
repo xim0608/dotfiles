@@ -11,11 +11,6 @@ git node_build_root do
   not_if { Dir.exists?(node_build_root)}
 end
 
-# execute 'reloading shell' do
-#   user ENV['USER']
-#   command 'source ~/.zshenv'
-# end
-
 node_version = 'v8.11.1'
 execute 'install node' do
   user ENV['USER']
