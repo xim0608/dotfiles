@@ -26,15 +26,6 @@ export EDITOR=vim
 # xenv init
 ###############
 
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
-pyenv(){
-  eval "$(command pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  pyenv "$@"
-}
 jenv(){
   export JENV_ROOT=/usr/local/var/jenv
   eval "$(command jenv init -)"

@@ -70,6 +70,8 @@ alias t='tig'
 ##############
 eval "$(rbenv init - --no-rehash)"
 eval "$(ndenv init - --no-rehash)"
+eval "$(pyenv init - --no-rehash)"
+
 
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
