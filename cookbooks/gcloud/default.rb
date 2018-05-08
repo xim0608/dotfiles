@@ -14,7 +14,7 @@ end
 execute "extract and remove gcloud-sdk.tar.gz" do
   command "tar zxvf #{tar_file_name} -C $HOME && rm #{tar_file_name}"
   not_if {
-    !File.exists?("#{base_target_dir}/google-cloud-sdk/install.sh")
+    File.exists?("#{base_target_dir}/google-cloud-sdk/install.sh")
   }  
 end
 
