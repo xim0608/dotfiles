@@ -6,3 +6,4 @@ bin/mitamae-*
 */completion.zsh.inc
 */path.zsh.inc
 */google-cloud-sdk/*
+google-cloud-sdk-192.0.0-darwin-x86_64.tar.gz
