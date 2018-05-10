@@ -39,3 +39,13 @@ execute 'install gatsbyjs' do
     result.exit_status == 0
   }
 end
+
+execute 'install fast-cli' do
+  user ENV['USER']
+  command 'npm install --global fast-cli && ndenv rehash'
+  not_if {
+    package_name = 'fast'
+    result = run_command("type #{package_name}", error: false)
+    result.exit_status == 0
+  }
+end
