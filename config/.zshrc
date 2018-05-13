@@ -66,12 +66,23 @@ alias s='ssh'
 alias t='tig'
 
 ##############
+# function
+##############
+function command_exists() {
+  type "$1" &> /dev/null ;
+}
+
+##############
 # plugin
 ##############
 eval "$(rbenv init - --no-rehash)"
 eval "$(ndenv init - --no-rehash)"
 eval "$(pyenv init - --no-rehash)"
-
+if command_exists goenv; then
+  eval "$(goenv init - --no-rehash)"
+else
+  echo "can't init goenv (goenv is not installed)"
+fi
 
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

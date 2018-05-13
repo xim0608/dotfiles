@@ -17,23 +17,20 @@ export PATH="${PYENV_ROOT}/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
-export GOPATH=$HOME/.go
-export PATH="$HOME/.goenv/bin:$PATH"
 export PATH="${HOME}/.ndenv/bin:${PATH}"
 export EDITOR=vim
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 ###############
 # xenv init
 ###############
-
 jenv(){
   export JENV_ROOT=/usr/local/var/jenv
   eval "$(command jenv init -)"
   jenv "$@"
-}
-goenv(){
-  eval "$(command goenv init -)"
-  goenv "$@"
 }
 
 export APPENGINE_SDK="$HOME/.go_appengine/google-cloud-sdk/platform/google_appengine"

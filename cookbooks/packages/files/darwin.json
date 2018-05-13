@@ -2,11 +2,11 @@
   "packages": [
     "rbenv",
     "pyenv",
-    "goenv",
     "tree",
     "mysql",
     "mas",
     "tig",
-    "siege"
+    "siege",
+    "hugo"
   ]
 }
