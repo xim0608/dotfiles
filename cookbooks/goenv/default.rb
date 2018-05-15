@@ -22,13 +22,3 @@ execute 'globalize go && reload shell' do
     result.stdout.include?(go_version)
   }
 end
-
-# execute 'install hugo && rehash' do
-#   user ENV['USER']
-#   command "go get hugo && goenv rehash"
-#   not_if {
-#     package_name = 'hugo'
-#     result = run_command("type #{package_name}", error: false)
-#     result.exit_status == 0
-#   }
-# end
