@@ -41,6 +41,7 @@ bindkey '^R' peco-history-selection
 ###############
 # alias
 ###############
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias md='cd ~/Documents/my_markdowns/ && atom ~/Documents/my_markdowns'
 alias cdmd='cd ~/Documents/my_markdowns/'
 alias be='bundle exec'
