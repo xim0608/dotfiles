@@ -8,6 +8,7 @@
     "tig",
     "siege",
     "hugo",
-    "octave"
+    "octave",
+    "cmake"
   ]
 }
