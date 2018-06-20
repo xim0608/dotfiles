@@ -15,7 +15,6 @@ export PATH="/usr/local/bin:$PATH"
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="${HOME}/.ndenv/bin:${PATH}"
 export EDITOR=vim
