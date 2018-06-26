@@ -9,6 +9,7 @@
     "siege",
     "hugo",
     "octave",
-    "cmake"
+    "cmake",
+    "mecab"
   ]
 }
