@@ -10,6 +10,8 @@
     "hugo",
     "octave",
     "cmake",
-    "mecab"
+    "mecab",
+    "tmux",
+    "reattach-to-user-namespace",
   ]
 }
