@@ -14,6 +14,7 @@ package 'peco'
 package 'zsh-syntax-highlighting'
 package 'zsh-autosuggestions'
 package 'zsh-completions'
+package 'ghq'
 
 git "./pure" do
   repository "https://github.com/sindresorhus/pure.git"
