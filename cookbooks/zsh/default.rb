@@ -15,6 +15,7 @@ package 'zsh-syntax-highlighting'
 package 'zsh-autosuggestions'
 package 'zsh-completions'
 package 'ghq'
+# TODO: add ghq setting
 
 git "./pure" do
   repository "https://github.com/sindresorhus/pure.git"
