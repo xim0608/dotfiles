@@ -20,7 +20,7 @@ export PATH="${HOME}/.ndenv/bin:${PATH}"
 export EDITOR=vim
 export GOENV_ROOT=$HOME/.goenv
 export PATH=$GOENV_ROOT/bin:$PATH
-export GOPATH=$HOME/go
+export GOPATH=$HOME/Works
 export PATH=$PATH:$GOPATH/bin
 
 ###############
