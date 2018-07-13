@@ -25,18 +25,28 @@ SAVEHIST=10000
 bindkey '^r' history-incremental-pattern-search-backward
 bindkey '^s' history-incremental-pattern-search-forward
 
+
+###############
+# peco setting
+###############
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
-
-# VSCode
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* }
-
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
 
 ###############
 # alias
@@ -68,11 +78,13 @@ alias t='tig'
 alias gore='GOROOT=$(go env GOROOT) gore'
 
 ##############
-# function
+# other functions
 ##############
 function command_exists() {
   type "$1" &> /dev/null ;
 }
+# VSCode
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* }
 
 ##############
 # plugin
