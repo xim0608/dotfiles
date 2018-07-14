@@ -37,8 +37,9 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
+# peco x ghq
 function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  local selected_dir=$(ghq list | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
@@ -47,6 +48,19 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+# peco x ghq x hub
+function peco-src-remote () {
+  local selected_repo=$(ghq list | peco --query "$LBUFFER" | rev | cut -d "/" -f -2 | rev)
+  echo $selected_repo
+  if [ -n "$selected_repo" ]; then
+    BUFFER="hub browse ${selected_repo}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src-remote
+bindkey '^h' peco-src-remote
 
 ###############
 # alias
