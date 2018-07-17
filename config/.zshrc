@@ -60,6 +60,19 @@ function peco-src-remote () {
 zle -N peco-src-remote
 bindkey '^h' peco-src-remote
 
+# peco x ghq x finder
+function peco-src-finder () {
+  local selected_repo=$(ghq list -p | peco --query "$LBUFFER")
+  echo $selected_repo
+  if [ -n "$selected_repo" ]; then
+    BUFFER="open ${selected_repo}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src-finder
+bindkey '^f' peco-src-finder
+
 ###############
 # alias
 ###############
