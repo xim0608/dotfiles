@@ -37,7 +37,7 @@ bindkey '^R' peco-history-selection
 
 # peco x ghq
 function peco-src () {
-  local selected_dir=$(ghq list | peco --query "$LBUFFER")
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
