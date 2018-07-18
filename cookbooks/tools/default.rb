@@ -26,7 +26,7 @@ end
 # itunes-cli
 execute 'install itunes-cli' do
   user ENV['USER']
-  command 'GOPATH=$HOME/Works go get github.com/lycoris0731/itunes-cli/itunes && go install github.com/lycoris0731/itunes-cli/itunes'
+  command 'GOPATH=$HOME/Works go get github.com/ktr0731/itunes-cli/itunes && GOPATH=$HOME/Works go install github.com/ktr0731/itunes-cli/itunes'
   not_if {
     package_name = 'itunes'
     result = run_command("type #{package_name}", error: false)
