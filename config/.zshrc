@@ -138,6 +138,7 @@ fi
 
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ryuki/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ryuki/google-cloud-sdk/path.zsh.inc'; fi
