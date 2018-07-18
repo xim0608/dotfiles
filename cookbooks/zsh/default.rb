@@ -15,7 +15,7 @@ package 'zsh-syntax-highlighting'
 package 'zsh-autosuggestions'
 package 'zsh-completions'
 
-zsh_theme_dir = "#{ENV['HOME']}/.zsh_theme"
+zsh_theme_dir = "#{ENV['HOME']}/.zsh/themes"
 git "#{zsh_theme_dir}/pure" do
   repository "https://github.com/sindresorhus/pure.git"
   not_if { File.exists?("#{zsh_theme_dir}/pure/pure.zsh") && File.exists?("#{zsh_theme_dir}/pure/async.zsh") }
