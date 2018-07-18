@@ -1,11 +1,11 @@
 # package 'ndenv'
-ndenv_root = "/Users/#{ENV['USER']}/.ndenv"
+ndenv_root = "#{ENV['HOME']}/.ndenv"
 git ndenv_root do
   repository "https://github.com/riywo/ndenv.git"
   not_if {Dir.exists?(ndenv_root)}
 end
 
-node_build_root = "/Users/#{ENV['USER']}/.ndenv/plugins/node-build"
+node_build_root = "#{ENV['HOME']}/.ndenv/plugins/node-build"
 git node_build_root do
   repository 'https://github.com/riywo/node-build.git'
   not_if { Dir.exists?(node_build_root)}

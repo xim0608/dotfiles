@@ -15,19 +15,20 @@ package 'zsh-syntax-highlighting'
 package 'zsh-autosuggestions'
 package 'zsh-completions'
 
-git "./pure" do
+zsh_theme_dir = "#{ENV['HOME']}/.zsh_theme"
+git "#{zsh_theme_dir}/pure" do
   repository "https://github.com/sindresorhus/pure.git"
-  not_if { File.exists?("../../../pure/pure.zsh") && File.exists?("../../../pure/async.zsh") }
+  not_if { File.exists?("#{zsh_theme_dir}/pure/pure.zsh") && File.exists?("#{zsh_theme_dir}/pure/async.zsh") }
 end
 
 if node[:platform] == 'darwin'
   link '/usr/local/share/zsh/site-functions/prompt_pure_setup' do
-    to File.expand_path("../../../pure/pure.zsh", __FILE__)
+    to File.expand_path("#{zsh_theme_dir}/pure/pure.zsh", __FILE__)
     user node[:user]
     force true
   end
   link '/usr/local/share/zsh/site-functions/async' do
-    to File.expand_path("../../../pure/async.zsh", __FILE__)
+    to File.expand_path("#{zsh_theme_dir}/pure/async.zsh", __FILE__)
     user node[:user]
     force true
   end

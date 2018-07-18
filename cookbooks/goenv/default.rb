@@ -1,4 +1,4 @@
-goenv_root = "/Users/#{ENV['USER']}/.goenv"
+goenv_root = "#{ENV['HOME']}/.goenv"
 git goenv_root do
   repository "https://github.com/syndbg/goenv.git"
   not_if {Dir.exists?(goenv_root)}

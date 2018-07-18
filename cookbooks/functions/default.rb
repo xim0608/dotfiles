@@ -7,5 +7,6 @@ define :ln do
   link dotfile do
     to File.expand_path("../../../config/#{params[:name]}", __FILE__)
     user node[:user]
+    force true
   end
 end
