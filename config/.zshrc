@@ -73,6 +73,19 @@ function peco-src-finder () {
 zle -N peco-src-finder
 bindkey '^f' peco-src-finder
 
+# peco x ghq x sublime
+function peco-src-sublime () {
+  local selected_repo=$(ghq list -p | peco --query "$LBUFFER")
+  echo $selected_repo
+  if [ -n "$selected_repo" ]; then
+    BUFFER="cd ${selected_repo} && subl ${selected_repo}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src-sublime
+bindkey '^u' peco-src-sublime
+
 # peco x itunes-cli
 # same function in # itunes list but below randomize
 function peco-itunes-music-finder () {
