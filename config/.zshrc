@@ -73,6 +73,8 @@ function peco-src-finder () {
 zle -N peco-src-finder
 bindkey '^f' peco-src-finder
 
+# peco x itunes-cli
+# same function in # itunes list but below randomize
 function peco-itunes-music-finder () {
   local selected_music=$(itunes list | gshuf | peco --query "$LBUFFER")
   echo $selected_music
