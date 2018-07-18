@@ -73,6 +73,18 @@ function peco-src-finder () {
 zle -N peco-src-finder
 bindkey '^f' peco-src-finder
 
+function peco-itunes-music-finder () {
+  local selected_music=$(itunes list | gshuf | peco --query "$LBUFFER")
+  echo $selected_music
+  if [ -n "$selected_music" ]; then
+    BUFFER="itunes play ${selected_music}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-itunes-music-finder
+bindkey '^t' peco-itunes-music-finder
+
 ###############
 # alias
 ###############

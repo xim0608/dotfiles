@@ -22,6 +22,8 @@ export GOENV_ROOT=$HOME/.goenv
 export PATH=$GOENV_ROOT/bin:$PATH
 export GOPATH=$HOME/Works
 export PATH=$PATH:$GOPATH/bin
+export ITUNES_CLI_FUZZY_TOOL="peco"
+
 
 ###############
 # xenv init

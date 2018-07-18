@@ -29,23 +29,3 @@ execute 'rehash ndenv && globalize ndenv version' do
     result.exit_status == 0
   }
 end
-
-execute 'install gatsbyjs' do
-  user ENV['USER']
-  command 'npm install --global gatsby-cli'
-  not_if {
-    package_name = 'gatsby'
-    result = run_command("type #{package_name}", error: false)
-    result.exit_status == 0
-  }
-end
-
-execute 'install fast-cli' do
-  user ENV['USER']
-  command 'npm install --global fast-cli && ndenv rehash'
-  not_if {
-    package_name = 'fast'
-    result = run_command("type #{package_name}", error: false)
-    result.exit_status == 0
-  }
-end
