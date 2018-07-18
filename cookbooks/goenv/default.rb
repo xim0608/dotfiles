@@ -16,7 +16,7 @@ end
 
 execute 'globalize go && reload shell' do
   user ENV['USER']
-  command "exec $SHELL -l && goenv global #{go_version}"
+  command "goenv global #{go_version}"
   not_if {
     result = run_command('go version', error: false)
     result.stdout.include?(go_version)
