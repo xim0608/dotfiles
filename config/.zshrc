@@ -25,31 +25,33 @@ SAVEHIST=10000
 
 
 ###############
-# peco setting
+# fzf functions & setting
 ###############
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+function fzf-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+zle -N fzf-history-selection
+bindkey '^R' fzf-history-selection
 
-# peco x ghq
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+# fzf x ghq
+function fzf-src () {
+  local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N fzf-src
+bindkey '^]' fzf-src
 
-# peco x ghq x hub
-function peco-src-remote () {
-  local selected_repo=$(ghq list | peco --query "$LBUFFER" | rev | cut -d "/" -f -2 | rev)
+# fzf x ghq x hub
+function fzf-src-remote () {
+  local selected_repo=$(ghq list | fzf --query "$LBUFFER" | rev | cut -d "/" -f -2 | rev)
   echo $selected_repo
   if [ -n "$selected_repo" ]; then
     BUFFER="hub browse ${selected_repo}"
@@ -57,12 +59,12 @@ function peco-src-remote () {
   fi
   zle clear-screen
 }
-zle -N peco-src-remote
-bindkey '^h' peco-src-remote
+zle -N fzf-src-remote
+bindkey '^h' fzf-src-remote
 
-# peco x ghq x finder
-function peco-src-finder () {
-  local selected_repo=$(ghq list -p | peco --query "$LBUFFER")
+# fzf x ghq x finder
+function fzf-src-finder () {
+  local selected_repo=$(ghq list -p | fzf --query "$LBUFFER")
   echo $selected_repo
   if [ -n "$selected_repo" ]; then
     BUFFER="open ${selected_repo}"
@@ -70,12 +72,12 @@ function peco-src-finder () {
   fi
   zle clear-screen
 }
-zle -N peco-src-finder
-bindkey '^f' peco-src-finder
+zle -N fzf-src-finder
+bindkey '^f' fzf-src-finder
 
-# peco x ghq x sublime
-function peco-src-sublime () {
-  local selected_repo=$(ghq list -p | peco --query "$LBUFFER")
+# fzf x ghq x sublime
+function fzf-src-sublime () {
+  local selected_repo=$(ghq list -p | fzf --query "$LBUFFER")
   echo $selected_repo
   if [ -n "$selected_repo" ]; then
     BUFFER="cd ${selected_repo} && subl ${selected_repo}"
@@ -83,13 +85,13 @@ function peco-src-sublime () {
   fi
   zle clear-screen
 }
-zle -N peco-src-sublime
-bindkey '^u' peco-src-sublime
+zle -N fzf-src-sublime
+bindkey '^u' fzf-src-sublime
 
-# peco x itunes-cli
+# fzf x itunes-cli
 # same function in # itunes list but below randomize
-function peco-itunes-music-finder () {
-  local selected_music=$(itunes list | gshuf | peco --query "$LBUFFER")
+function fzf-itunes-music-finder () {
+  local selected_music=$(itunes list | gshuf | fzf --query "$LBUFFER")
   echo $selected_music
   if [ -n "$selected_music" ]; then
     if [[ $selected_music =~ "'" ]] || [[ $selected_music =~ " " ]]; then
@@ -102,12 +104,9 @@ function peco-itunes-music-finder () {
   fi
   zle clear-screen
 }
-zle -N peco-itunes-music-finder
-bindkey '^t' peco-itunes-music-finder
+zle -N fzf-itunes-music-finder
+bindkey '^t' fzf-itunes-music-finder
 
-###############
-# fzf setting
-###############
 # fkill - kill process
 fkill() {
   local pid
@@ -126,7 +125,6 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
-
 
 ###############
 # alias

@@ -10,7 +10,6 @@ if node[:platform] == 'darwin'
   end
 end
 
-package 'peco'
 package 'fzf'
 package 'zsh-syntax-highlighting'
 package 'zsh-autosuggestions'
