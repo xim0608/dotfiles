@@ -139,7 +139,7 @@ alias t='tig'
 alias bek='bundle exec rake'
 alias ber='bundle exec rails'
 alias cg='git config --global --list | grep ^alias\.'
-alias reload='exec $SHELL -l'
+alias reload='tmux source-file ~/.tmux.conf && exec $SHELL -l'
 alias u='cd ..'
 alias uu='cd ../..'
 alias uuu='cd ../../..'
@@ -163,6 +163,26 @@ function command_exists() {
 }
 # VSCode
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* }
+
+##############
+# tmux
+##############
+if [[ -z $TMUX && -n $PS1 ]]; then
+  function tmux() {
+    if [[ $# == 0 ]] && tmux has-session 2>/dev/null; then
+      command tmux attach-session
+    else
+      command tmux "$@"
+    fi
+  }
+fi
+
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+# tmux x fzf-tmux
+if [ ! -z "$TMUX" ]; then
+  alias fzf='fzf-tmux'
+fi
 
 ##############
 # plugin
