@@ -106,6 +106,29 @@ zle -N peco-itunes-music-finder
 bindkey '^t' peco-itunes-music-finder
 
 ###############
+# fzf setting
+###############
+# fkill - kill process
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+# fbr - checkout git branch
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+
+###############
 # alias
 ###############
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
