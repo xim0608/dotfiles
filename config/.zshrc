@@ -208,8 +208,6 @@ if [ -e /usr/local/share/zsh/site-functions/async ]; then
     fpath=(/usr/local/share/zsh/site-functions/async $fpath)
 fi
 
-
-
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
