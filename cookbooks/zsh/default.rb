@@ -36,3 +36,4 @@ end
 
 ln '.zshrc'
 ln '.zshenv'
+ln '.tmux.conf'
