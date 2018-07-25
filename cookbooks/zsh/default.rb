@@ -34,6 +34,37 @@ if node[:platform] == 'darwin'
   end
 end
 
+# show temparature
+tmp_dir = "#{ENV['HOME']}/osx-cpu-temp"
+git tmp_dir do
+  repository "https://github.com/lavoiesl/osx-cpu-temp"
+  not_if {
+    package_name = 'osx-cpu-temp'
+    result = run_command("type #{package_name}", error: false)
+    result.exit_status == 0
+  }
+end
+
+execute 'make osx-cpu-temp' do
+  user ENV['USER']
+  command "cd #{tmp_dir} && make"
+  not_if {
+    package_name = 'osx-cpu-temp'
+    result = run_command("type #{package_name}", error: false)
+    result.exit_status == 0
+  }
+end
+
+execute 'install osx-cpu-temp' do
+  user ENV['USER']
+  command "cd #{tmp_dir} && make install"
+  not_if {
+    package_name = 'osx-cpu-temp'
+    result = run_command("type #{package_name}", error: false)
+    result.exit_status == 0
+  }
+end
+
 ln '.zshrc'
 ln '.zshenv'
 ln '.tmux.conf'
