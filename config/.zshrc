@@ -117,6 +117,8 @@ fkill() {
     echo $pid | xargs kill -${1:-9}
   fi
 }
+zle -N fkill
+bindkey '^k' fkill
 
 # fbr - checkout git branch
 fbr() {
