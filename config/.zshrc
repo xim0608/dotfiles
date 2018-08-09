@@ -127,6 +127,8 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+zle -N fbr
+bindkey '^b' fbr
 
 alias -g B='`git branch --sort=-authordate | fzf | sed -e "s/^\*[ ]*//g"`'
 
