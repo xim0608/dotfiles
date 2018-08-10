@@ -9,6 +9,6 @@
   df = diff
   cm = commit
 [push]
-	default = simple
+	default = current
 [ghq]
   root = ~/Works/src
