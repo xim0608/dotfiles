@@ -160,6 +160,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias s='ssh'
 alias t='tig'
 alias gore='GOROOT=$(go env GOROOT) gore'
+alias pm='python manage.py'
 
 ##############
 # other functions
