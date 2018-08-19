@@ -1,0 +1,1 @@
+set-option -g status-right "#h |#[fg=colour255,bg=colour241] LA: #(uptime | awk '{print $(NF-2)}') #[default]| [%Y-%m-%d %H:%M:%S] "
