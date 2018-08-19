@@ -1,0 +1,14 @@
+{
+  "packages": [
+    "gcc",
+    "make",
+    "openssl",
+    "libssl-dev",
+    "libbz2-dev",
+    "libreadline-dev",
+    "libsqlite3-dev"
+    "tree",
+    "tmux",
+    "language-pack-ja"
+  ]
+}
