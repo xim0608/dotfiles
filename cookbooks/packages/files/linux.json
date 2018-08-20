@@ -6,9 +6,10 @@
     "libssl-dev",
     "libbz2-dev",
     "libreadline-dev",
-    "libsqlite3-dev"
+    "libsqlite3-dev",
     "tree",
     "tmux",
-    "language-pack-ja"
+    "language-pack-ja",
+    "vim"
   ]
 }
