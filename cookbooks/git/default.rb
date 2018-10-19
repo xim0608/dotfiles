@@ -1,4 +1,5 @@
 package 'git'
 
 ln '.gitconfig'
-# ln '.gitignore'
+ln '.gitignore_global'
+
