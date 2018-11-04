@@ -161,6 +161,13 @@ alias s='ssh'
 alias t='tig'
 alias gore='GOROOT=$(go env GOROOT) gore'
 alias pm='python manage.py'
+vagrant() {
+  if [[ $@ == "halt all" ]]; then
+    command vagrant global-status | grep running | colrm 8 | xargs -L 1 -t vagrant halt
+  else
+    command vagrant "$@"
+  fi
+}
 
 ##############
 # other functions
