@@ -11,21 +11,21 @@ git node_build_root do
   not_if { Dir.exists?(node_build_root)}
 end
 
-node_version = 'v8.11.1'
-execute 'install node' do
-  user ENV['USER']
-  command "ndenv install #{node_version}"
-  not_if {
-    result = run_command('ndenv versions', error: false)
-    result.stdout.include?(node_version)
-  }
-end
+#node_version = 'v8.11.1'
+#execute 'install node' do
+#  user ENV['USER']
+#  command "ndenv install #{node_version}"
+#  not_if {
+#    result = run_command('ndenv versions', error: false)
+#    result.stdout.include?(node_version)
+#  }
+#end
 
-execute 'rehash ndenv && globalize ndenv version' do
-  user ENV['USER']
-  command "ndenv rehash && ndenv global #{node_version}"
-  not_if {
-    result = run_command('npm -v', error: false)
-    result.exit_status == 0
-  }
-end
+#execute 'rehash ndenv && globalize ndenv version' do
+#  user ENV['USER']
+#  command "ndenv rehash && ndenv global #{node_version}"
+#  not_if {
+#    result = run_command('npm -v', error: false)
+#    result.exit_status == 0
+#  }
+#end
