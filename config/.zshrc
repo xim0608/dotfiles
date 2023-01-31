@@ -201,8 +201,12 @@ fi
 ##############
 # plugin
 ##############
+export PYENV_ROOT="$HOME/.pyenv/shims"
+export PATH="$PYENV_ROOT:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/python"
+
 eval "$(rbenv init - --no-rehash)"
-eval "$(ndenv init - --no-rehash)"
+eval "$(nodenv init - --no-rehash)"
 eval "$(pyenv init - --no-rehash)"
 if command_exists goenv; then
   eval "$(goenv init - --no-rehash)"
@@ -210,20 +214,29 @@ else
   echo "can't init goenv (goenv is not installed)"
 fi
 
-[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.zsh/themes/pure/async.zsh ] && source ~/.zsh/themes/pure/async.zsh
+[ -f ~/.zsh/themes/pure/pure.zsh ] && source ~/.zsh/themes/pure/pure.zsh
+[ -f ~/.zsh/themes/pure/prompt_pure_setup ] && source ~/.zsh/themes/pure/prompt_pure_setup
 if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
-if [ -e /usr/local/share/zsh/site-functions/prompt_pure_setup ]; then
-    fpath=(/usr/local/share/zsh/site-functions/prompt_pure_setup $fpath)
-fi
-if [ -e /usr/local/share/zsh/site-functions/async ]; then
-    fpath=(/usr/local/share/zsh/site-functions/async $fpath)
+    fpath=(//usr/local/share/zsh-completions $fpath)
 fi
 
+# intel mac
+[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# m1 mac
+# [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# if [ -e /opt/homebrew/share/zsh-completions ]; then
+#     fpath=(/opt/homebrew/share/zsh-completions $fpath)
+# fi
+
+# intel
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+# m1
+# export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
+# export PATH="/usr/local/sbin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ryuki/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ryuki/google-cloud-sdk/path.zsh.inc'; fi

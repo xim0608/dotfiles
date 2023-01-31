@@ -3,7 +3,6 @@
     "rbenv",
     "pyenv",
     "tree",
-    "mysql",
     "mas",
     "tig",
     "siege",
@@ -13,6 +12,11 @@
     "tmux",
     "reattach-to-user-namespace",
     "hub",
-    "coreutils"
+    "coreutils",
+    "zlib",
+    "sqlite",
+    "bzip2",
+    "libiconv",
+    "libzip"
   ]
 }

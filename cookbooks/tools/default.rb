@@ -1,6 +1,8 @@
 # ghq
 if node[:os] == 'darwin'
   package 'ghq'
+  package 'openssl'
+  package 'libffi'
 elsif node[:os] == 'ubuntu'
   execute 'install gatsbyjs' do
     user ENV['USER']

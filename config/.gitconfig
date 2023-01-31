@@ -12,3 +12,5 @@
 	default = current
 [ghq]
   root = ~/Works/src
+[init]
+	defaultBranch = main

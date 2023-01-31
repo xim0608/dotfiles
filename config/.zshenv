@@ -5,15 +5,15 @@ else
   compinit -C
 fi
 autoload -U promptinit; promptinit
-prompt pure
 
 export PATH="/usr/local/bin:$PATH"
 
 ###############
 # path
 ###############
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv/shims"
+export PATH="$PYENV_ROOT:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/python"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="${HOME}/.ndenv/bin:${PATH}"
@@ -23,6 +23,8 @@ export PATH=$GOENV_ROOT/bin:$PATH
 export GOPATH=$HOME/Works
 export PATH=$PATH:$GOPATH/bin
 export ITUNES_CLI_FUZZY_TOOL="fzf"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
 
 
 ###############
